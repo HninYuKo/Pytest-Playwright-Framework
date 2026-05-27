@@ -2,6 +2,6 @@ pytest
 playwright
 pytest-playwright
 pytest-html
+pytest-xdist
 pytest-metadata
 requests
-playwright
