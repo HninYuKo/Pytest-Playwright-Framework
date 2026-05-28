@@ -1,15 +1,15 @@
-
 import pytest
-from playwright.sync_api import Page
-from pages.login_page import LoginPage
-from pages.inventory_page import InventoryPage
+from playwright.sync_api import sync_playwright
+
+@pytest.fixture(scope="session")
+def browser():
+   with sync_playwright() as p:
+       browser = p.chromium.launch(headless=False)
+       yield browser
+       browser.close()
 
 @pytest.fixture
-def login_page(page: Page):
-    # Pass the Playwright page instance into our custom Page Object
-    return LoginPage(page)
-
-@pytest.fixture
-def inventory_page(page: Page):
-    # Pass the Playwright page instance into our custom Page Object
-    return InventoryPage(page)
+def page(browser):
+   page = browser.new_page()
+   yield page
+   page.close()

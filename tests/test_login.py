@@ -1,9 +1,12 @@
-from playwright.sync_api import expect
+from playwright.sync_api import Page,expect
 from pages.login_page import LoginPage
 
 
-def test_successful_login(login_page: LoginPage, page):
-    # 1. Navigate to login page
+def test_successful_login(page: Page) -> None:
+
+    login_page = LoginPage(page)
+
+    # 1. Navigate to login
     login_page.navigate()
 
     # 2. Perform actions using POM methods

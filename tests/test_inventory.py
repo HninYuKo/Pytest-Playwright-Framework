@@ -1,9 +1,12 @@
-from playwright.sync_api import expect
+from playwright.sync_api import Page,expect
+import re
 from pages.inventory_page import InventoryPage
 from pages.login_page import LoginPage
 
 
-def test_inventory_addtocart(inventory_page: InventoryPage, login_page: LoginPage, page):
+def test_inventory_addtocart(page: Page) -> None:
+    login_page = LoginPage(page)
+    inventory_page = InventoryPage(page)
     # 1. Navigate to inventory page (via login)
     login_page.ensure_logged_in()
 
