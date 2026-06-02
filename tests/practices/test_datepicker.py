@@ -29,8 +29,6 @@ def test_datepicker_booking(page_instance) -> None:
 
     page.locator("div[class='b779265b5e'] button").wait_for(state="visible")
     page.locator("div[class='b779265b5e'] button").click()
-    # expect(page.locator("div[role='dialog']")).to_be_visible()
-    # page.locator("button[aria-label='Dismiss sign in information.']").click()
     page.wait_for_timeout(2000)
 
     page.get_by_test_id("searchbox-dates-container").click()
@@ -43,7 +41,7 @@ def test_datepicker_booking(page_instance) -> None:
 
     checkin_text=page.locator("span[data-testid='date-display-field-start']").inner_text()
     checkout_text=page.locator("span[data-testid='date-display-field-end']").inner_text()
-    #
+
     print(f"{checkin_text} :: and :: {checkout_text}")
     expect(page.locator("span[data-testid='date-display-field-start']")).to_contain_text(checkin_text)
     expect(page.locator("span[data-testid='date-display-field-end']")).to_contain_text(checkout_text)

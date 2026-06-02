@@ -39,7 +39,9 @@ def browser_instance(browser_type_name):
 
         # Dynamically switch browser engine
         if browser_type_name == "chromium":
-            browser = p.chromium.launch(headless=False)
+            # browser = p.chromium.launch(headless=False)
+            browser = p.chromium.launch(headless=True)
+
         elif browser_type_name == "firefox":
             browser = p.firefox.launch(headless=False)
         # elif browser_type_name == "webkit":
