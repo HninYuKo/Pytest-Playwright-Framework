@@ -1,8 +1,8 @@
 from playwright.sync_api import Page, expect
 
 
-def test_end_2_end(page: Page) -> None:
-
+def test_end_2_end(page_instance) -> None:
+    page=page_instance
     page.goto("https://blazedemo.com/")
     page.wait_for_timeout(3000)
 

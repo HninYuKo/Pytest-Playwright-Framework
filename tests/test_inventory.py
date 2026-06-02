@@ -4,7 +4,8 @@ from pages.inventory_page import InventoryPage
 from pages.login_page import LoginPage
 
 
-def test_inventory_addtocart(page: Page) -> None:
+def test_inventory_addtocart(page_instance) -> None:
+    page = page_instance
     login_page = LoginPage(page)
     inventory_page = InventoryPage(page)
 

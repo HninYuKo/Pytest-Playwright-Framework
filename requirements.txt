@@ -3,5 +3,6 @@ playwright
 pytest-playwright
 pytest-html
 pytest-xdist
+pytest-rerunfailures
 pytest-metadata
 requests

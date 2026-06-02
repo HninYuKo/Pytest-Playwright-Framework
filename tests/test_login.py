@@ -2,8 +2,8 @@ from playwright.sync_api import Page,expect
 from pages.login_page import LoginPage
 
 
-def test_successful_login(page: Page) -> None:
-
+def test_successful_login(page_instance) -> None:
+    page=page_instance
     login_page = LoginPage(page)
 
     login_page.navigate()
