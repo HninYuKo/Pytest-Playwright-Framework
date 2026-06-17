@@ -66,6 +66,7 @@ def test_end_2_end(page_instance) -> None:
     expect(page).to_have_url("https://blazedemo.com/confirmation.php")
 
     title = page.locator("h1")
+
     expect(title).to_be_visible()
     expect(title).to_contain_text("Thank you for your purchase today!")
 
